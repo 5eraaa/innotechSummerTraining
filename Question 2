@@ -1,0 +1,45 @@
+Console.WriteLine("Hello, Please enter the maximum number you need to add");
+
+string? maximumNumberFromUser;
+int maximumNumber;
+bool validInput = false;
+
+do
+{
+    maximumNumberFromUser = Console.ReadLine();
+    if (int.TryParse(maximumNumberFromUser, out maximumNumber) && maximumNumber > 0) 
+    {
+        validInput = true;
+    }
+    else
+    {
+        Console.WriteLine("invalid input , enter a positive integer");
+    }
+} while (!validInput);
+
+
+maximumNumber = Convert.ToInt32(maximumNumberFromUser);
+
+Console.WriteLine($"Are you sure you need to get the addition up to {maximumNumberFromUser}?");
+
+int sum = 0;
+
+Console.WriteLine("Write yes formula is you want it by formula or write yes for loop if you want orginal loop");
+
+string userOrder = Console.ReadLine();
+
+if (userOrder == "yes formula")
+{
+    sum = (maximumNumber * (maximumNumber + 1)) / 2;
+    Console.WriteLine($"The sum of numbers from 1 to {maximumNumber} = {sum} by formula");
+    // CPU (ALU) do few aritmetic operations - constant time - 
+}
+else
+{
+    for (int iterator = 1; iterator <= maximumNumber; iterator++)
+    {
+        sum = sum + iterator;
+    }
+    Console.WriteLine($"The sum of numbers from 1 to {maximumNumber} = {sum} by loop");
+    // CPU (ALU) operations increase with increasing the number as it big O of N consume more time from CPU 
+}
