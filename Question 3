@@ -1,0 +1,20 @@
+Console.Write("Enter maximum number: ");
+int maximumNumber = int.Parse(Console.ReadLine());
+
+
+string numbers = "";
+for (int i = 1; i <= maximumNumber; i++)
+{
+  numbers += i;
+  if (i < maximumNumber) numbers += ",";   // I controlled the last comma in the output 
+}
+Console.WriteLine("Result (String): " + numbers);
+
+// Method 2: StringBuilder (manual comma control)
+StringBuilder sb = new StringBuilder();  // string builder is built on mutable buffer - dont have predefined size - 
+for (int i = 1; i <= maximumNumber; i++)
+{
+  sb.Append(i);
+  if (i < maximumNumber) sb.Append(",");
+}
+Console.WriteLine("Result (StringBuilder): " + sb.ToString());
